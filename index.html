@@ -52,7 +52,7 @@
   <a href="#s3">SERVICE</a>
   <a href="#s4">STYLES</a>
   <a href="#s5">AI FASHION</a>
-  <a href="#s6">CONTACT</a>
+  <a href="#s6">EVENT</a>
 </nav>
 
 
@@ -380,43 +380,107 @@
   </section>
 
 <!-- SECTION_6 INFO -->
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Ẩn thanh cuộn ngang */
+    }
+
+    .image-slider {
+      overflow: hidden; /* Ẩn phần không hiển thị */
+      width: 100%; /* Chiếm toàn bộ chiều rộng */
+      position: relative; /* Để có thể sử dụng position cho con cái */
+    }
+
+    .image-container {
+      display: flex; /* Sử dụng flex để chạy các ảnh theo hàng ngang */
+      width: calc(100% * 5); /* Chiều rộng đủ cho 10 ảnh (5 ảnh gốc + 5 ảnh sao chép) */
+      animation: slide 10s linear infinite; /* Thiết lập animation chạy liên tục */
+    }
+
+    .image-container img {
+      width: 4%; /* Giảm kích thước ảnh xuống 20% chiều rộng của container */
+      height: auto; /* Giữ tỷ lệ khung hình */
+      margin-right: 100px; /* Thêm khoảng cách giữa các ảnh */
+    }
+
+    /* Loại bỏ margin bên phải cho ảnh cuối cùng */
+    .image-container img:last-child {
+      margin-right: 0;
+    }
+
+    /* Animation */
+    @keyframes slide {
+      0% { transform: translateX(0); } /* Bắt đầu từ vị trí ban đầu */
+      100% { transform: translateX(-35%); } /* Cuối cùng dịch chuyển 50% chiều rộng sang trái */
+    }
+</style>
+
+
   <section id="s6">
-
-    <h3>CONTACT</h3>
-
-    <form action="MAILTO:tinasun20@gmail.com" method="post" enctype="text/plain" >
-
-      <div class="form clearfix ">
-
-        <div class="f1">
-          <select name="contries" id="sel" placeholder="Which country?">
-            <option value="China">China</option>
-            <option value="Bangladesh">Bangladesh</option>
-            <option value="Germany">Germany</option>
-            <option value="Indonesia">Indonesia</option>
-            <option value="Malaysia">Malaysia</option>
-            <option value="India">India</option>
-          </select>
-          <input type="text" id="fname" name="name" placeholder="First Name" required>
-          <input type="text" id="lname" name="name" placeholder="Last Name" required>
-          <input type="email" id="mail" name="email" placeholder="Email">
-        </div>
-
-        <div class="f2">
-          <textarea name="comments" id="tarea" placeholder="Your message here"></textarea>
-          <input type="submit" value="SEND">
-        </div>
-
+    <div class="h3">
+      <h3 class='animate'>PROMOTE</h3>
+      <div class="h3">   
+        <h4 class = 'animate'>Cập nhật thông tin mới nhất</h4>
       </div>
-
-    </form>
-
+    </div>
+    <div class="image-slider">
+      <div class="image-container">
+        <img src="imgs/sale1.jpg" alt="Image 1">
+        <img src="imgs/sale2.jpg" alt="Image 2">
+        <img src="imgs/sale3.jpg" alt="Image 3">
+        <img src="imgs/sale4.jpg" alt="Image 4">
+        <img src="imgs/sale5.jpg" alt="Image 5">
+        <img src="imgs/sale1.jpg" alt="Image 1">
+        <img src="imgs/sale2.jpg" alt="Image 2">
+        <img src="imgs/sale3.jpg" alt="Image 3">
+        <img src="imgs/sale4.jpg" alt="Image 4">
+        <img src="imgs/sale5.jpg" alt="Image 5">
+      </div>
+    </div>
   </section>
+
+  <script>
+    const imageContainer = document.getElementById('image-container');
+    const images = [
+      'imgs/sale1.jpg',
+      'imgs/sale2.jpg',
+      'imgs/sale3.jpg',
+      'imgs/sale4.jpg',
+      'imgs/sale5.jpg'
+    ];
+
+    // Hàm tạo phần tử ảnh mới
+    function createImageElement(src) {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `Image`;
+      return img;
+    }
+
+    // Hàm khởi động vòng lặp
+    function startImageLoop() {
+      // Thêm ảnh đầu tiên để bắt đầu
+      images.forEach(src => {
+        const img = createImageElement(src);
+        imageContainer.appendChild(img);
+      });
+
+      // Thêm một khoảng thời gian để khởi động lại animation
+      setTimeout(() => {
+        imageContainer.style.animationPlayState = 'running';
+      }, 0);
+    }
+
+    // Khởi động vòng lặp
+    startImageLoop();
+  </script>
 
 <!-- FOOTER INFO -->
   <footer>
     <div id="footer">
-      <div class="logoo"><h1>Design</h1></div>
+      <div class="logoo"><h1>Havana</h1></div>
 
       <div class="info1">
         <a href="mailto:HELLO@DESIGNINC.COM">havana@DESIGNINC.COM</a><br>
@@ -429,7 +493,7 @@
       </div>
 
       <div class="info2">
-        <p>© 2017 DESIGN INC.</p>
+        <p>© 2017 HAVANA INC.</p>
         <p>All rights reserved.</p>
       </div>
     </div>
